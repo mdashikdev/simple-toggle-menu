@@ -1,0 +1,189 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Montserrat&display=swap');
+
+*{
+    margin: 0;;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body{
+    display: flex;
+    justify-content: cenet;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(45deg,#0057bff0,#00d015);
+}
+
+.navigation{
+    position: relative;
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    z-index: 3;
+}
+
+.menu_toggle{
+    position: relative;
+    width: 60px;
+    height: 60px;
+    background: white;
+    box-shadow: 0px 15px 25px rgba(0, 0,0,0.15);
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: .8s;
+    -webkit-transition: .8s;
+    -moz-transition: .8s;
+    -ms-transition: .8s;
+    -o-transition: .8s;
+
+}
+.menu_toggle::before{
+    content: "+";
+    position: absolute;
+    font-size: 4em;
+    color: red;
+    font-weight: 200;
+    transition: 0.8s;
+    -webkit-transition: 0.8s;
+    -moz-transition: 0.8s;
+    -ms-transition: 0.8s;
+    -o-transition: 0.8s;
+}
+
+.menu_toggle.active{
+    transform: rotate(225deg);
+    -webkit-transform: rotate(225deg);
+    -moz-transform: rotate(225deg);
+    -ms-transform: rotate(225deg);
+    -o-transform: rotate(225deg);
+    box-shadow: 15px 0px 25px rgba(0, 0,0,0.15);
+}
+
+.menu{
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    background: white;
+    box-shadow: 0px 15px 25px rgba(0,0,0,.15);
+    border-radius: 50px;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    -ms-border-radius: 50px;
+    -o-border-radius: 50px;
+    z-index: -1;
+    transition:transform 1s, width 0.8s,height .8s ;
+    -webkit-transition:transform 1s, width 0.8s,height .8s ;
+    -moz-transition:transform 1s, width 0.8s,height .8s ;
+    -ms-transition:transform 1s, width 0.8s,height .8s ;
+    -o-transition:transform 1s, width 0.8s,height .8s ;
+    transition-delay:1s,.5s,0.5s;
+    transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+    overflow: hidden;
+}
+
+.menu_toggle.active ~ .menu{
+    width: 200px;
+    height: 50px;
+    border-radius: 50px;
+    z-index: 2;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    -ms-border-radius: 50px;
+    -o-border-radius: 50px;
+    transform: translateY(-80px);
+    -webkit-transform: translateY(-80px);
+    -moz-transform: translateY(-80px);
+    -ms-transform: translateY(-80px);
+    -o-transform: translateY(-80px);
+    transition-delay: 0s,0.5s,0.5s;
+}
+
+.menu::before{
+    position: absolute;
+    content: '';
+    width: 20px;
+    height: 20px;
+    background: white;
+    bottom: 5px;
+    left: calc(50% - 10px);
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    z-index: 1;
+    transition:.9s;
+    -webkit-transition:.9s;
+    -moz-transition:.9s;
+    -ms-transition:.9s;
+    -o-transition:.9s;
+}
+
+.menu_toggle.active ~ .menu::before{
+    bottom: -5px;
+}
+
+.menu ul{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.menu ul li{
+    list-style: none;
+    padding: 8px;
+    z-index: 3;
+    border-radius: 30px;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    -ms-border-radius: 30px;
+    -o-border-radius: 30px;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.25s;
+    -webkit-transition: 0.25s;
+    -moz-transition: 0.25s;
+    -ms-transition: 0.25s;
+    -o-transition: 0.25s;
+    transition-delay: calc(0s + var(--i));
+    transform: translateY(-30px);
+    -webkit-transform: translateY(-30px);
+    -moz-transform: translateY(-30px);
+    -ms-transform: translateY(-30px);
+    -o-transform: translateY(-30px);
+}
+
+.menu ul li:hover{
+    background: rgb(238, 238, 238);
+}
+
+.menu ul li a{
+    color: black;
+    font-size: 1.2em;
+}
+
+.menu ul li:hover a{
+    color: tomato;
+}
+
+.menu_toggle.active ~ .menu ul li{
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0px);
+    -webkit-transform: translateY(0px);
+    -moz-transform: translateY(0px);
+    -ms-transform: translateY(0px);
+    -o-transform: translateY(0px);
+    transition-delay: calc(.75 + var(--i));
+}
